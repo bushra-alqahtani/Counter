@@ -1,0 +1,35 @@
+{% extends 'index.html'%}
+
+
+{% block content %}
+
+<div class="container">
+    <h1 >count</h1>
+    <h2 ><span>{{request.session.visit}} </span> visits</h2>
+    <h2 ><span>{{request.session.count}} </span> time</h2>
+
+
+    <a href="/destroy_session">
+        <button> clear </button>
+    </a>
+
+    <a href="/add_two">
+        <button> +2 </button>
+    </a>
+  <br> <br>
+
+    <form action="/add" method="POST" >
+        {% csrf_token %}
+        
+        <label for="num"> increase by</label>
+         <input type="text" name="num">
+         <button type="submit"></button>
+        
+
+    </form>
+
+
+
+
+    
+        {% endblock %}
